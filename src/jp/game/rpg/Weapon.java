@@ -1,24 +1,8 @@
 package jp.game.rpg;
 
 /*
-
-class Car2 {
-	String color;
-	int num;
-	double gas;
-	
-	public Car2(String c, int n, double g) {
-		color = c;
-		num = n;
-		gas = g;
-	}
-	
-	public void show() {
-		System.out.println("車の色は" + color + " ナンバーは[" + num + "] 燃料は [" + gas + "]");
-	}
-}
-
-*/
+ * 
+ */
 
 public class Weapon {
     private String name;
@@ -51,5 +35,10 @@ public class Weapon {
                 "name='" + name + '\'' +
                 ", attack=" + attack +
                 '}';
+    }
+
+    public static void main(String[] args) {
+    	Weapon weapon1 = new Weapon("鉄の剣",100);
+    	System.out.println(weapon1);
     }
 }
