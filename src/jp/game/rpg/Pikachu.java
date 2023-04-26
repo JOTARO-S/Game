@@ -10,4 +10,9 @@ public class Pikachu extends Pokemon {
      System.out.println(getName() + " used Thunderbolt!");
  }
  
+ public static void main(String[] args) {
+	 Pikachu pika1 = new Pikachu("pikapi",15,30);
+	 pika1.thunderbolt();
+ }
+ 
 }
