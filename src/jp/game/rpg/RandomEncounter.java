@@ -13,7 +13,7 @@ public class RandomEncounter {
 	private static final double ENCOUNTER_RATE = 0.2; // エンカウント率
     private static final String[] ENEMY_TYPES = {"スライム", "ゴブリン", "ドラゴン"}; // 敵の種類
     private static final int MIN_ENEMY_LEVEL = 1; // 敵の最低レベル
-    private static final int MAX_ENEMY_LEVEL = 10; // 敵の最高レベル
+    private static final int MAX_ENEMY_LEVEL = 100; // 敵の最高レベル
 
     public static void main(String[] args) {
         Random rand = new Random();
@@ -33,9 +33,7 @@ public class RandomEncounter {
 
 
 
- class Monster {
-	private int id;
-	private String name;
+ class Status {
 	private int hp;
 	private int mp;
 	private int atk;
@@ -44,14 +42,12 @@ public class RandomEncounter {
 	private int mdef;
 	private int spd;
 	private int luk;
-	private String op;
 	
-	Monster() {
+	Status() {
 		
 	}
-	Monster(int id, String name, int hp, int mp, int atk, int def, int matk, int mdef, int spd, int luk, String op) {
-		this.id = id;
-		this.name = name;
+	Status(int hp, int mp, int atk, int def, int matk, int mdef, int spd, int luk) {
+		
 		this.hp = hp;
 		this.mp = mp;
 		this.atk = atk;
@@ -60,16 +56,9 @@ public class RandomEncounter {
 		this.mdef = mdef;
 		this.spd = spd;
 		this.luk = luk;
-		this.op = op;
 	}
 
 	//setter
-	void setId(int id) {
-		this.id = id;
-	}
-	void setName(String name) {
-		this.name = name;
-	}
 	void setHp(int hp) {
 		this.hp =hp;
 	}
@@ -94,21 +83,49 @@ public class RandomEncounter {
 	void setLuk(int luk) {
 		this.luk = luk;
 	}
-	void setOp(String op) {
-		this.op = op;
-	}
-	//getter
-	int getId() {
-		return id;
-	}
 	
 	void show() {
-		System.out.println("ID: " + id + ", 名前: " + name + ", HP: " + hp + ", MP: " + mp + ", ATK: " + atk + ", DEF: " + def 
-				+ ", MATK: " + matk + ", MDEF: " + mdef + ", SPD: " + spd + ", LUK: " + luk + ", OP: " + op);
+		System.out.println(" HP: " + hp + ", MP: " + mp + ", ATK: " + atk + ", DEF: " + def 
+				+ ", MATK: " + matk + ", MDEF: " + mdef + ", SPD: " + spd + ", LUK: " + luk);
 	}
 	
-	void encaunt() {
-		System.out.println(name + "が現れた！どうする？");
+	
+	
+	class Monster extends Status {
+		private int id;
+		private String name;
+		private String op;
+	
+		Monster() {
+			
+		}
+		Monster(int id, String name, String op) {
+			super(hp, mp, atk, def, matk, mdef, spd, luk);
+			this.id = id;
+			this.name = name;
+			this.op = op;
+		}
+		//setter
+		void setId(int id) {
+			this.id = id;
+		}
+		void setName(String name) {
+			this.name = name;
+		}
+		void setOp(String op) {
+			this.op = op;
+		}
+		//getter
+		int getId() {
+			return id;
+		}
+		void showM() {
+			System.out.println("ID: " + id + ", 名前: " + name + ", OP: " + op);
+		}
+		void encaunt() {
+			System.out.println(name + "が現れた！どうする？");
+			
+		}
 		
 	}
 	
