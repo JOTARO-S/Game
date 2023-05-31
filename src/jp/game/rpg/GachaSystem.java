@@ -122,11 +122,11 @@ public class GachaSystem extends User{
     public static void main(String[] args) {
     	GachaSystem user1 = new GachaSystem(1234, "test", 0, 100);
     	Scanner scanner = new Scanner(System.in);
-    	LocalDateTime now = LocalDateTime.now();
-    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年MM月dd日 HH:mm:ss");
     	int choice = 0;
 
     	while (choice != 3) {
+    	LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年MM月dd日 HH:mm:ss");
     	System.out.println();
     	System.out.println(now.withNano(0).format(formatter));
     	System.out.println("あなたのユーザーID: " + user1.getId());
@@ -167,6 +167,7 @@ public class GachaSystem extends User{
                 break;
             case 4: //課金する
             	user1.setMagicStoneCount();
+            	break;
             case 5: //廃課金の末路
             	for(int i = 0; i < 10; i++) {
             	user1.setMagicStoneCount();
